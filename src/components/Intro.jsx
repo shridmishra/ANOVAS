@@ -12,9 +12,12 @@ export function Intro() {
   const [projectKey, setProjectKey] = useState(0);
   const [clientKey, setClientKey] = useState(0);
   const [revenueKey, setRevenueKey] = useState(0);
-  const [showCounters, setShowCounters] = useState(false); 
+  const [showCounters, setShowCounters] = useState(false);
 
   useEffect(() => {
+    // Ensure dark mode is set by default
+    document.documentElement.classList.add('dark');
+
     // Delay the start of the counters by 1.5 seconds
     const timer = setTimeout(() => {
       setShowCounters(true);

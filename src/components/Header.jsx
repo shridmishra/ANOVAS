@@ -1,40 +1,27 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { FaMoon } from "react-icons/fa";
-import { MdSunny } from "react-icons/md";
 
 export const Header = () => {
-  const [theme, setTheme] = useState("light");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isVisible, setIsVisible] = useState(true); // Header visible at start
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Load theme from local storage
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme) {
-      setTheme(storedTheme);
-      document.documentElement.classList.add(storedTheme);
-    } else {
-      setTheme("light");
-      document.documentElement.classList.add("light");
-    }
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
   }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-
-      // Show the header if at the top, hide if scrolling down, show if scrolling up
       if (scrollY === 0) {
-        setIsVisible(true); // Always show the header at the top
+        setIsVisible(true);
       } else if (scrollY > lastScrollY) {
-        setIsVisible(false); // Hide the header when scrolling down
+        setIsVisible(false);
       } else {
-        setIsVisible(true); // Show the header when scrolling up
+        setIsVisible(true);
       }
-
-      setLastScrollY(scrollY); // Update the last scroll position
+      setLastScrollY(scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -42,20 +29,6 @@ export const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
-
-  const toggleTheme = () => {
-    if (theme === "light") {
-      document.documentElement.classList.remove("light");
-      document.documentElement.classList.add("dark");
-      setTheme("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
-      setTheme("light");
-      localStorage.setItem("theme", "light");
-    }
-  };
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -65,7 +38,7 @@ export const Header = () => {
     <nav
       className={`border-gray-200 dark:border-gray-700 font-sora fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
-      } bg-transparent`} // Always transparent background
+      } bg-transparent`}
     >
       <div className="w-full flex flex-wrap items-center justify-between mx-auto p-6 backdrop-blur-md">
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse ml-10">
@@ -108,16 +81,11 @@ export const Header = () => {
             id="navbar-dropdown"
           >
             <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-gray-700">
-              {/* Nav Items */}
               {["Home", "Services", "About", "Contact"].map((item, index) => (
                 <li key={index}>
                   <a
                     href="#"
-                    className={`block py-3 px-4 text-xl rounded-lg transition duration-200 ${
-                      theme === "light"
-                        ? "text-gray-900 hover:text-purple-600"
-                        : "text-white hover:text-purple-300"
-                    }`}
+                    className="block py-3 px-4 text-xl rounded-lg transition duration-200 text-white hover:text-purple-300"
                   >
                     {item}
                   </a>
@@ -125,17 +93,6 @@ export const Header = () => {
               ))}
             </ul>
           </div>
-
-          <button
-            onClick={toggleTheme}
-            className="p-5 transition duration-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full"
-          >
-            {theme === "light" ? (
-              <FaMoon className="text-gray-800 dark:text-white" />
-            ) : (
-              <MdSunny className="text-gray-800 dark:text-white" />
-            )}
-          </button>
         </div>
       </div>
     </nav>

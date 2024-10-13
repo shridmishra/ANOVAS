@@ -1,86 +1,76 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import { WobbleCard } from "./ui/wobble-card";
+import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 
-export function Projects() {
-  const title = `Our Projects `;
+export const Projects = () =>{
+  const cards = data.map((card, index) => (
+    <Card key={card.src} card={card} index={index} />
+  ));
 
+  const title = "Our Projects" 
   return (
-    <div className=" mx-auto p-32 w-full font-sora dark:bg-black">
-      {/* Section title */}
-      <div className="text-left mb-12  p-4">
-        <h1 className="text-white font-sora font-bold">
+    (<div className="w-full h-full py-20 ">
+       {/* Section title */}
+       <div className="text-left ml-32">
+        <h1 className="text-black dark:text-white font-sora font-bold text-4xl">
           <TextGenerateEffect words={title} />
         </h1>
       </div>
 
-      {/* Projects grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        {/* Project 1 */}
-        <WobbleCard
-          containerClassName="col-span-1 lg:col-span-2 h-full bg-purple-800 min-h-[500px] lg:min-h-[300px]"
-          className=""
-        >
-          <div className="max-w-xs">
-            <h2
-              className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white"
-            >
-              Project Oxygen
-            </h2>
-            <p className="mt-4 text-left text-base/6 text-neutral-200">
-              Oxygen provides real-time atmospheric analysis and environmental
-              impact insights to keep you informed about your surroundings.
-            </p>
-          </div>
-          <Image
-            src="/project-oxygen.png"
-            width={500}
-            height={500}
-            alt="Oxygen project image"
-            className="absolute -right-4 lg:-right-[40%] grayscale filter -bottom-10 object-contain rounded-2xl"
-          />
-        </WobbleCard>
-
-        {/* Project 2 */}
-        <WobbleCard containerClassName="col-span-1 min-h-[300px]">
-          <h2
-            className="max-w-80 text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white"
-          >
-            Project Phoenix
-          </h2>
-          <p className="mt-4 max-w-[26rem] text-left text-base/6 text-neutral-200">
-            Phoenix is a next-gen, AI-driven platform designed to resurrect
-            outdated systems into high-performance, scalable solutions.
-          </p>
-        </WobbleCard>
-
-        {/* Project 3 */}
-        <WobbleCard
-          containerClassName="col-span-1 lg:col-span-3 bg-blue-900 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]"
-        >
-          <div className="max-w-sm">
-            <h2
-              className="max-w-sm md:max-w-lg text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white"
-            >
-              Project Titan
-            </h2>
-            <p className="mt-4 max-w-[26rem] text-left text-base/6 text-neutral-200">
-              Titan, the ultimate cloud infrastructure solution, enables rapid
-              deployment of global applications with unmatched reliability and
-              scalability.
-            </p>
-          </div>
-          <Image
-            src="/project-titan.png"
-            width={500}
-            height={500}
-            alt="Titan project image"
-            className="absolute -right-10 md:-right-[40%] lg:-right-[20%] -bottom-10 object-contain rounded-2xl"
-          />
-        </WobbleCard>
-      </div>
-    </div>
+      <Carousel items={cards} />
+    </div>)
   );
 }
+
+const DummyContent = () => {
+  return (<>
+    {[...new Array(3).fill(1)].map((_, index) => {
+      return (
+        (<div
+          key={"dummy-content" + index}
+          className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+          <p
+            className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sora max-w-3xl mx-auto">
+            <span className="font-bold text-neutral-700 dark:text-neutral-200">
+              The first rule of Apple club is that you boast about Apple club.
+            </span>{" "}
+            Keep a journal, quickly jot down a grocery list, and take amazing
+            class notes. Want to convert those notes to text? No problem.
+            Langotiya jeetu ka mara hua yaar is ready to capture every
+            thought.
+          </p>
+          <Image
+            src="/digiabhay.png"
+            alt="Example image"
+            height="500"
+            width="500"
+            className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain" />
+        </div>)
+      );
+    })}
+  </>);
+};
+
+const data = [
+  {
+    category: "Portfolio",
+    title: "Digi Abhay",
+    src: "/digiabhay.png",
+    content: <DummyContent />,
+  },
+  {
+    category: "E-Commerce",
+    title: "Rajeshwari Textile ",
+    src: "/rajeshwari.png",
+    content: <DummyContent />,
+  },
+  {
+    category: "Website",
+    title: "R-Consultant",
+    src: "/r-consultant.png",
+    content: <DummyContent />,
+  },
+
+];
