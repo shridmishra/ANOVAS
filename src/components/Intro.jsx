@@ -5,6 +5,7 @@ import CountUp from "react-countup";
 import { useEffect, useState } from "react";
 import { FlipWords } from "./ui/flip-words";
 import { FaWhatsapp } from "react-icons/fa";
+import { IoArrowForwardOutline } from "react-icons/io5";
 
 export function Intro() {
   const words = ["E-Commerce", "Portfolio", "Landing Page", "Course Site"];
@@ -67,12 +68,12 @@ export function Intro() {
         </Highlight>
       </motion.h1>
 
-      <div className="mt-24 mb-10 text-center text-5xl md:text-6xl lg:text-7xl font-sora text-gray-700 dark:text-gray-300">
-        <strong>We Build</strong> <FlipWords words={words} /> <br />
+      <div className=" mt-24 mb-24 text-center text-5xl md:text-6xl lg:text-7xl font-sora text-gray-700 dark:text-gray-100">
+        <div className="mb-4 font-semibold">We Build</div> <FlipWords words={words} /> <br />
       </div>
 
-      <div className="mt-12 flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-10">
-        <div className="flex flex-col items-center p-6 md:p-10">
+      <div className=" mt-10 lg:mt-12 flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-10">
+        <div className="flex flex-col items-center lg:p-6 md:p-10">
           {/* Counter for Projects */}
           {showCounters ? (
             <motion.div
@@ -91,7 +92,7 @@ export function Intro() {
               />
             </motion.div>
           ) : (
-            <div className="text-6xl font-bold text-gray-800 dark:text-white font-sora">
+            <div className="text-4xl lg:text-6xl font-bold text-gray-800 dark:text-white font-sora">
               0+
             </div>
           )}
@@ -100,7 +101,7 @@ export function Intro() {
           </p>
         </div>
 
-        <div className="flex flex-col items-center p-6 md:p-10">
+        <div className="flex flex-col items-center lg:p-6 md:p-10">
           {/* Counter for Clients */}
           {showCounters ? (
             <motion.div
@@ -119,7 +120,7 @@ export function Intro() {
               />
             </motion.div>
           ) : (
-            <div className="text-6xl font-bold text-gray-800 dark:text-white font-sora">
+            <div className="text-4xl lg:text-6xl  font-bold text-gray-800 dark:text-white font-sora">
               0+
             </div>
           )}
@@ -128,7 +129,7 @@ export function Intro() {
           </p>
         </div>
 
-        <div className="flex flex-col items-center p-6 md:p-10">
+        <div className="flex flex-col items-center lg:p-6 md:p-10">
           {/* Counter for Revenue */}
           {showCounters ? (
             <motion.div
@@ -148,7 +149,7 @@ export function Intro() {
               />
             </motion.div>
           ) : (
-            <div className="text-6xl font-bold text-gray-800 dark:text-white font-sora">
+            <div className="text-4xl lg:text-6xl  font-bold text-gray-800 dark:text-white font-sora">
               $0+
             </div>
           )}
@@ -163,10 +164,12 @@ export function Intro() {
           href="https://wa.me/yourwhatsappphonenumber"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-8 py-2 mt-4 mb-8 bg-green-500 text-white font-sora font-semibold rounded-lg shadow-lg hover:bg-green-600 transition duration-300 ease-in-out text-lg md:text-xl"
+          className="inline-flex items-center justify-center px-8 py-2 mt-4 mb-8 bg-gradient-to-r from-indigo-500 dark:to-purple-500 text-white font-sora font-semibold rounded-lg shadow-lg hover:bg-green-600 transition duration-300 ease-in-out text-lg md:text-xl"
         >
-          <FaWhatsapp className="mr-2 h-10" />
+          {/* <FaWhatsapp className="mr-2 h-10" /> */}
+
           Connect on WhatsApp
+          <IoArrowForwardOutline className="ml-2 h-8 "/>
         </a>
       </div>
     </HeroHighlight>

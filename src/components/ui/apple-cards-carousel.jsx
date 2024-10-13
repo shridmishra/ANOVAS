@@ -251,7 +251,7 @@ export const BlurImage = ({
       src={src}
       alt={alt}
       fill={true}
-      onLoadingComplete={() => setLoading(false)}
+      onLoad={() => setLoading(false)}
       {...rest} />)
   );
 };

@@ -11,9 +11,9 @@ export const Projects = () =>{
 
   const title = "Our Projects" 
   return (
-    (<div className="w-full h-full py-20 ">
+    (<div className="w-full h-full py-20 bg-black">
        {/* Section title */}
-       <div className="text-left ml-32">
+       <div className="text-center">
         <h1 className="text-black dark:text-white font-sora font-bold text-4xl">
           <TextGenerateEffect words={title} />
         </h1>
