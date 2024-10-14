@@ -49,7 +49,7 @@ export const Header = () => {
 
   return (
     <nav
-      className={`border-gray-200 dark:border-gray-700 font-sora fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${
+      className={`border-gray-200 dark:border-gray-200 font-sora fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } bg-black bg-opacity-80`}
     >

@@ -4,16 +4,14 @@ import { HeroHighlight, Highlight } from "./ui/hero-highlight";
 import CountUp from "react-countup";
 import { useEffect, useState } from "react";
 import { FlipWords } from "./ui/flip-words";
-import { FaWhatsapp } from "react-icons/fa";
-import { IoArrowForwardOutline } from "react-icons/io5";
 import { CtaButton } from "./CtaButton";
+import { Clients } from "./Clients";
 
 export function Intro() {
   const words = ["E-Commerce", "Portfolio", "Landing Page", "Course Site"];
 
   const [projectKey, setProjectKey] = useState(0);
   const [clientKey, setClientKey] = useState(0);
-  const [revenueKey, setRevenueKey] = useState(0);
   const [showCounters, setShowCounters] = useState(false);
 
   useEffect(() => {
@@ -40,12 +38,6 @@ export function Intro() {
     }, 1500);
   };
 
-  const handleRevenueComplete = () => {
-    setTimeout(() => {
-      setRevenueKey((prevKey) => prevKey + 1);
-    }, 1500);
-  };
-
   return (
     <HeroHighlight>
       <motion.h1
@@ -69,11 +61,47 @@ export function Intro() {
         </Highlight>
       </motion.h1>
 
-      <div className=" mt-24 mb-24 text-center text-5xl md:text-6xl lg:text-7xl font-sora text-gray-700 dark:text-gray-100">
-        <div className="mb-4 font-semibold">We Build</div> <FlipWords words={words} /> <br />
+      <div className="mt-24 mb-24 text-5xl md:text-6xl lg:text-7xl flex flex-col md:flex-row font-sora text-gray-700 dark:text-gray-100 items-center">
+        <div className="mb-4 font-semibold">We Build</div>
+        <FlipWords words={words} />
       </div>
 
-      <div className=" mt-10 lg:mt-12 flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-10">
+      <div className="mt-10 lg:mt-12 flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-10">
+        <div className="flex flex-col items-center lg:p-6 md:p-10">
+          <div className="flex items-center">
+            {/* Clients Section */}
+            <Clients className="h-28" />
+            <div className="flex flex-col items-center ml-7">
+              <div className="flex items-center">
+                {showCounters ? (
+                  <motion.div
+                    key={clientKey}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className="text-6xl font-bold text-gray-800 dark:text-white transition duration-300 ease-in-out transform hover:scale-105 font-sora ml-2"
+                  >
+                    <CountUp
+                      start={0}
+                      end={300}
+                      duration={2}
+                      suffix="+"
+                      onComplete={handleClientComplete}
+                    />
+                  </motion.div>
+                ) : (
+                  <div className="text-4xl lg:text-6xl font-bold text-gray-800 dark:text-white font-sora ml-2">
+                    0+
+                  </div>
+                )}
+              </div>
+              <div className="text-xl md:text-2xl mt-2 text-gray-600 dark:text-gray-300 font-sora">
+                Clients
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="flex flex-col items-center lg:p-6 md:p-10">
           {/* Counter for Projects */}
           {showCounters ? (
@@ -101,75 +129,16 @@ export function Intro() {
             Projects
           </p>
         </div>
-
-        <div className="flex flex-col items-center lg:p-6 md:p-10">
-          {/* Counter for Clients */}
-          {showCounters ? (
-            <motion.div
-              key={clientKey}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="text-6xl font-bold text-gray-800 dark:text-white transition duration-300 ease-in-out transform hover:scale-105 font-sora"
-            >
-              <CountUp
-                start={0}
-                end={300}
-                duration={2}
-                suffix="+"
-                onComplete={handleClientComplete}
-              />
-            </motion.div>
-          ) : (
-            <div className="text-4xl lg:text-6xl  font-bold text-gray-800 dark:text-white font-sora">
-              0+
-            </div>
-          )}
-          <p className="text-xl md:text-2xl mt-2 text-gray-600 dark:text-gray-300 font-sora">
-            Clients
-          </p>
-        </div>
-
-        <div className="flex flex-col items-center lg:p-6 md:p-10">
-          {/* Counter for Revenue */}
-          {showCounters ? (
-            <motion.div
-              key={revenueKey}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="text-6xl font-bold text-gray-800 dark:text-white transition duration-300 ease-in-out transform hover:scale-105 font-sora"
-            >
-              <CountUp
-                start={0}
-                end={10000}
-                duration={2}
-                prefix="$"
-                suffix="+"
-                onComplete={handleRevenueComplete}
-              />
-            </motion.div>
-          ) : (
-            <div className="text-4xl lg:text-6xl  font-bold text-gray-800 dark:text-white font-sora">
-              $0+
-            </div>
-          )}
-          <p className="text-xl md:text-2xl mt-2 text-gray-600 dark:text-gray-300 font-sora">
-            Revenue
-          </p>
-        </div>
       </div>
-
-    
 
       <div className="text-center mt-4">
         <a
           href="https://wa.me/yourwhatsappphonenumber"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center mt-4 mb-8  text-white font-sora font-semibold rounded-lg shadow-lg transition duration-300 ease-in-out text-lg md:text-xl"
+          className="inline-flex items-center justify-center mt-4 mb-8 text-white font-sora font-semibold rounded-lg shadow-lg transition duration-300 ease-in-out text-lg md:text-xl"
         >
-            <CtaButton/>
+          <CtaButton />
         </a>
       </div>
     </HeroHighlight>

@@ -1,76 +1,46 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
+import { Card } from "./ui/Card";
 
 export const Projects = () =>{
-  const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
-  ));
 
   const title = "Our Projects" 
   return (
-    (<div className="w-full h-full py-20 bg-black">
+    (<div className="w-full h-full py-20 bg-black z-50">
        {/* Section title */}
        <div className="text-center">
         <h1 className="text-black dark:text-white font-sora font-bold text-4xl">
           <TextGenerateEffect words={title} />
         </h1>
       </div>
+      
+        <div className="lg:flex justify-center items-center p-4 font-sora ">
+        <Card 
+            imageUrl="/digiabhay.png"
+            category="PortFolio"
+            title="Digi Abhay"
+            siteUrl="https://example.com"
+                 />
 
-      <Carousel items={cards} />
+              <Card 
+            imageUrl="/rajeshwari2.png"
+            category="E-commerce"
+            title="Rajeshwari Textiles"
+            siteUrl="https://example.com"
+                 />
+
+          <Card 
+            imageUrl="/r-consultant.png"
+            category="Website"
+            title="R-Consultant"
+            siteUrl="https://example.com"
+                 />
+
+        </div>
+   
     </div>)
   );
 }
 
-const DummyContent = () => {
-  return (<>
-    {[...new Array(3).fill(1)].map((_, index) => {
-      return (
-        (<div
-          key={"dummy-content" + index}
-          className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
-          <p
-            className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sora max-w-3xl mx-auto">
-            <span className="font-bold text-neutral-700 dark:text-neutral-200">
-              The first rule of Apple club is that you boast about Apple club.
-            </span>{" "}
-            Keep a journal, quickly jot down a grocery list, and take amazing
-            class notes. Want to convert those notes to text? No problem.
-            Langotiya jeetu ka mara hua yaar is ready to capture every
-            thought.
-          </p>
-          <Image
-            src="/digiabhay.png"
-            alt="Example image"
-            height="500"
-            width="500"
-            className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain" />
-        </div>)
-      );
-    })}
-  </>);
-};
-
-const data = [
-  {
-    category: "Portfolio",
-    title: "Digi Abhay",
-    src: "/digiabhay.png",
-    content: <DummyContent />,
-  },
-  {
-    category: "E-Commerce",
-    title: "Rajeshwari Textile ",
-    src: "/rajeshwari.png",
-    content: <DummyContent />,
-  },
-  {
-    category: "Website",
-    title: "R-Consultant",
-    src: "/r-consultant.png",
-    content: <DummyContent />,
-  },
-
-];

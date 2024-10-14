@@ -62,7 +62,8 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20 max-w-7xl overflow-hidden", 
+        "mask-gradient", // Apply responsive vignette effect class
         className
       )}
     >
