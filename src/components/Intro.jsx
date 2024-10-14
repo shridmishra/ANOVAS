@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { FlipWords } from "./ui/flip-words";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoArrowForwardOutline } from "react-icons/io5";
+import { CtaButton } from "./CtaButton";
 
 export function Intro() {
   const words = ["E-Commerce", "Portfolio", "Landing Page", "Course Site"];
@@ -159,17 +160,16 @@ export function Intro() {
         </div>
       </div>
 
+    
+
       <div className="text-center mt-4">
         <a
           href="https://wa.me/yourwhatsappphonenumber"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-8 py-2 mt-4 mb-8 bg-gradient-to-r from-indigo-500 dark:to-purple-500 text-white font-sora font-semibold rounded-lg shadow-lg hover:bg-green-600 transition duration-300 ease-in-out text-lg md:text-xl"
+          className="inline-flex items-center justify-center mt-4 mb-8  text-white font-sora font-semibold rounded-lg shadow-lg transition duration-300 ease-in-out text-lg md:text-xl"
         >
-          {/* <FaWhatsapp className="mr-2 h-10" /> */}
-
-          Connect on WhatsApp
-          <IoArrowForwardOutline className="ml-2 h-8 "/>
+            <CtaButton/>
         </a>
       </div>
     </HeroHighlight>

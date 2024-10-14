@@ -14,13 +14,7 @@ export const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      if (scrollY === 0) {
-        setIsVisible(true);
-      } else if (scrollY > lastScrollY) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
+      setIsVisible(scrollY === 0 || scrollY < lastScrollY);
       setLastScrollY(scrollY);
     };
 
@@ -31,7 +25,7 @@ export const Header = () => {
   }, [lastScrollY]);
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    setIsDropdownOpen((prev) => !prev);
   };
 
   // Close dropdown if clicked outside
@@ -128,17 +122,17 @@ export const Header = () => {
           )}
 
           <div
-            className={`${
-              isDropdownOpen ? "block" : "hidden"
-            } absolute right-0 mt-2 w-48 bg-black rounded-lg shadow-lg z-50 transition-opacity duration-200`}
+            className={`absolute right-0 text-center mt-2 w-screen bg-black rounded-lg shadow-lg z-50 transition-all duration-300 ease-in-out ${
+              isDropdownOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+            }`}
             id="navbar-dropdown"
           >
-            <ul className="flex flex-col font-medium p-2">
+            <ul className="flex flex-col font-medium p-2 m-0">
               {["Home", "Services", "About", "Contact"].map((item, index) => (
                 <li key={index}>
                   <a
                     href="#"
-                    className="block py-3 px-4 text-xl text-white rounded-lg transition duration-200 hover:text-purple-300 hover:bg-gray-700 dark:hover:bg-gray-600"
+                    className="block py-3 px-4 w-full text-xl text-white rounded-lg transition duration-200 hover:text-purple-300 hover:bg-gray-700 dark:hover:bg-gray-600"
                     onClick={handleMenuItemClick} // Close on click
                   >
                     {item}
