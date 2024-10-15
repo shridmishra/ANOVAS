@@ -30,6 +30,22 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
   }
+
+  /* Gradient Icon Styles */
+.gradient-icon svg {
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(90deg, #ff00cc 0%, #3333ff 100%);
+  
+  /* Vendor prefixes for older browser support */
+  -webkit-background-clip: text; /* Safari, Chrome (older versions) */
+  background-clip: text; /* Standard property for modern browsers */
+  
+  -webkit-text-fill-color: transparent; /* For WebKit browsers to make text transparent */
+}
+
+  /* Rest of your custom styles here */
+  
   .card {
     transition: transform 0.3s ease;
   }
@@ -38,29 +54,43 @@
     transform: scale(1.05);
   }
   
-/* For Desktop */
-.mask-gradient {
-  mask-image: linear-gradient(
-    to right,
-    transparent 5%,
-    black 20%,
-    black 80%,
-    transparent 95%
-  );
-}
-
-/* For Mobile */
-@media (max-width: 768px) {
+  /* For Desktop */
   .mask-gradient {
     mask-image: linear-gradient(
       to right,
-      transparent 10%,
-      black 30%,
-      black 70%,
-      transparent 90%
+      transparent 5%,
+      black 20%,
+      black 80%,
+      transparent 95%
     );
   }
-}
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-marquee {
+    display: inline-flex;
+    animation: marquee 15s linear infinite;
+  }
+
+  /* For Mobile */
+  @media (max-width: 768px) {
+    .mask-gradient {
+      mask-image: linear-gradient(
+        to right,
+        transparent 10%,
+        black 30%,
+        black 70%,
+        transparent 90%
+      );
+    }
+  }
 
   .dark {
     --background: 222.2 84% 4.9%;
@@ -87,14 +117,5 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }

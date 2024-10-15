@@ -15,15 +15,13 @@ export function Intro() {
   const [showCounters, setShowCounters] = useState(false);
 
   useEffect(() => {
-    // Ensure dark mode is set by default
     document.documentElement.classList.add('dark');
 
-    // Delay the start of the counters by 1.5 seconds
     const timer = setTimeout(() => {
       setShowCounters(true);
     }, 1500);
 
-    return () => clearTimeout(timer); // Cleanup on component unmount
+    return () => clearTimeout(timer);
   }, []);
 
   const handleProjectComplete = () => {
@@ -61,73 +59,104 @@ export function Intro() {
         </Highlight>
       </motion.h1>
 
-      <div className="mt-24 mb-24 text-5xl md:text-6xl lg:text-7xl flex flex-col md:flex-row font-sora text-gray-700 dark:text-gray-100 items-center">
-        <div className="mb-4 font-semibold">We Build</div>
-        <FlipWords words={words} />
+      <div className="mt-24 mb-24 flex flex-col items-center">
+        <div className="text-5xl md:text-6xl lg:text-7xl flex flex-col md:flex-row font-sora text-gray-700 dark:text-gray-100 items-center justify-center">
+          <div className="lg:mr-1 mb-4 lg:mb-0 font-semibold">We Build</div>
+          <FlipWords words={words} />
+        </div>
       </div>
 
+      {/* Clients Section */}
       <div className="mt-10 lg:mt-12 flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-10">
         <div className="flex flex-col items-center lg:p-6 md:p-10">
-          <div className="flex items-center">
-            {/* Clients Section */}
-            <Clients className="h-28" />
-            <div className="flex flex-col items-center ml-7">
-              <div className="flex items-center">
-                {showCounters ? (
-                  <motion.div
-                    key={clientKey}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="text-6xl font-bold text-gray-800 dark:text-white transition duration-300 ease-in-out transform hover:scale-105 font-sora ml-2"
-                  >
-                    <CountUp
-                      start={0}
-                      end={300}
-                      duration={2}
-                      suffix="+"
-                      onComplete={handleClientComplete}
-                    />
-                  </motion.div>
-                ) : (
-                  <div className="text-4xl lg:text-6xl font-bold text-gray-800 dark:text-white font-sora ml-2">
-                    0+
-                  </div>
-                )}
+          <div className="flex flex-col items-center">
+            <Clients />
+            {showCounters ? (
+              <motion.div
+                key={clientKey}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                className="text-4xl font-bold text-gray-800 dark:text-white transition duration-300 ease-in-out transform hover:scale-105 font-sora mt-2"
+              >
+                <CountUp
+                  start={0}
+                  end={300}
+                  duration={2}
+                  suffix="+"
+                  onComplete={handleClientComplete}
+                />
+              </motion.div>
+            ) : (
+              <div className="text-4xl lg:text-4xl font-bold text-gray-800 dark:text-white font-sora mt-2">
+                0+
               </div>
-              <div className="text-xl md:text-2xl mt-2 text-gray-600 dark:text-gray-300 font-sora">
-                Clients
-              </div>
+            )}
+            <div className="text-2xl md:text-3xl mt-2 text-gray-600 dark:text-gray-300 font-sora">
+              Clients
             </div>
           </div>
         </div>
 
+        {/* Projects Section */}
         <div className="flex flex-col items-center lg:p-6 md:p-10">
-          {/* Counter for Projects */}
-          {showCounters ? (
-            <motion.div
-              key={projectKey}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="text-6xl font-bold text-gray-800 dark:text-white transition duration-300 ease-in-out transform hover:scale-105 font-sora"
-            >
-              <CountUp
-                start={0}
-                end={150}
-                duration={2}
-                suffix="+"
-                onComplete={handleProjectComplete}
-              />
-            </motion.div>
-          ) : (
-            <div className="text-4xl lg:text-6xl font-bold text-gray-800 dark:text-white font-sora">
-              0+
-            </div>
-          )}
-          <p className="text-xl md:text-2xl mt-2 text-gray-600 dark:text-gray-300 font-sora">
-            Projects
-          </p>
+        <Clients />
+          <div className="flex flex-col items-center">
+            {showCounters ? (
+              <motion.div
+                key={projectKey}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                className="text-4xl font-bold text-gray-800 dark:text-white transition duration-300 ease-in-out transform hover:scale-105 font-sora mt-2"
+              >
+                <CountUp
+                  start={0}
+                  end={150}
+                  duration={2}
+                  suffix="+"
+                  onComplete={handleProjectComplete}
+                />
+              </motion.div>
+            ) : (
+              <div className="text-4xl lg:text-4xl font-bold text-gray-800 dark:text-white font-sora mt-2">
+                0+
+              </div>
+            )}
+            <p className="text-2xl md:text-3xl mt-2 text-gray-600 dark:text-gray-300 font-sora">
+              Projects
+            </p>
+          </div>
+        </div>
+
+        {/* Additional Section (e.g., Services) */}
+        <div className="flex flex-col items-center lg:p-6 md:p-10">
+        <Clients />
+          <div className="flex flex-col items-center">
+            {showCounters ? (
+              <motion.div
+                key={projectKey} // You may want to create a separate key for this section
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                className="text-4xl font-bold text-gray-800 dark:text-white transition duration-300 ease-in-out transform hover:scale-105 font-sora mt-2"
+              >
+                <CountUp
+                  start={0}
+                  end={50} // Example count for another section
+                  duration={2}
+                  suffix="+"
+                />
+              </motion.div>
+            ) : (
+              <div className="text-4xl lg:text-4xl font-bold text-gray-800 dark:text-white font-sora mt-2">
+                0+
+              </div>
+            )}
+            <p className="text-2xl md:text-3xl mt-2 text-gray-600 dark:text-gray-300 font-sora">
+              Services
+            </p>
+          </div>
         </div>
       </div>
 

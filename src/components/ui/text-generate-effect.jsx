@@ -9,10 +9,11 @@ export const TextGenerateEffect = ({
   className,
   filter = true,
   duration = 0.5,
-  textSize = "text-6xl", // Increase the default text size
+  textSize = "text-6xl", // Default for larger screens
+  mobileTextSize = "text-2xl", // Add mobile text size
 }) => {
   const [scope, animate] = useAnimate();
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 }); // Observe when the element is in view
+  const { ref, inView, entry } = useInView({ triggerOnce: false, threshold: 0.1 }); // triggerOnce: false for repeated animation
   let wordsArray = words.split(" ");
 
   useEffect(() => {
@@ -24,8 +25,10 @@ export const TextGenerateEffect = ({
         duration: duration ? duration : 1,
         delay: stagger(0.2),
       });
+    } else {
+      animate("span", { opacity: 0, filter: "blur(10px)" }, { duration: 0 }); // Reset the animation on exit
     }
-  }, [inView]);
+  }, [inView, entry?.isIntersecting]); // Trigger animation based on visibility
 
   const renderWords = () => {
     return (
@@ -52,7 +55,8 @@ export const TextGenerateEffect = ({
         <div
           className={cn(
             "dark:text-white text-black leading-snug tracking-wide",
-            textSize // Dynamically apply the text size class
+            `md:${textSize}`, // Apply the larger size on medium and above
+            mobileTextSize // Apply smaller size for mobile
           )}
         >
           {renderWords()}

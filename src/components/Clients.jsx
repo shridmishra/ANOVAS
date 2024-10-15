@@ -21,18 +21,13 @@ const people = [
     designation: "Data Scientist",
     image: "/digiabhay2.png",
   },
-  {
-    id: 4,
-    name: "Emily Davis",
-    designation: "UX Designer",
-    image: "/digiabhay2.png",
-  },
+ 
  
 ];
 
 export function Clients() {
   return (
-    <div className="flex flex-row items-center justify-center mb-10 w-full">
+    <div className="flex flex-row items-center mr-10 justify-center mb-5 w-full ">
       <AnimatedTooltip items={people} />
     </div>
   );
