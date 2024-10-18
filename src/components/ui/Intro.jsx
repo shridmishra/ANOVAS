@@ -1,11 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
-import { HeroHighlight, Highlight } from "./ui/hero-highlight";
+import { HeroHighlight, Highlight } from "./hero-highlight";
 import CountUp from "react-countup";
 import { useEffect, useState } from "react";
-import { FlipWords } from "./ui/flip-words";
-import { CtaButton } from "./CtaButton";
-import { Clients } from "./Clients";
+import { FlipWords } from "./flip-words";
+import { CtaButton } from "../CtaButton";
+import { Clients } from "../Clients";
+import Navbar from "../NavBar";
+import GradientButton from "./gradient-button";
 
 export function Intro() {
   const words = ["E-Commerce", "Portfolio", "Landing Page", "Course Site"];
@@ -37,7 +39,10 @@ export function Intro() {
   };
 
   return (
+
+    
     <HeroHighlight>
+      <Navbar className="mt-0"/>
       <motion.h1
         initial={{
           opacity: 0,
@@ -58,8 +63,9 @@ export function Intro() {
           Anovas Devs
         </Highlight>
       </motion.h1>
-
+          
       <div className="mt-24 mb-24 flex flex-col items-center">
+      
         <div className="text-5xl md:text-6xl lg:text-7xl flex flex-col md:flex-row font-sora text-gray-700 dark:text-gray-100 items-center justify-center">
           <div className="lg:mr-1 mb-4 lg:mb-0 font-semibold">We Build</div>
           <FlipWords words={words} />

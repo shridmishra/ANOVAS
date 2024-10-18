@@ -4,7 +4,7 @@ import React from "react"
 
 export const Footer = () => {
     return (
-        <footer className="bg-white dark:bg-black font-sora">
+        <footer className="bg-gradient-to-r from-gray-900 via-black to-gray-900 font-sora">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
@@ -14,12 +14,12 @@ export const Footer = () => {
                                 className="h-8 me-3" 
                                 alt="ANOVAS Logo" 
                             />
-                            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ANOVAS</span>
+                            <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">ANOVAS</span>
                         </a>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+                            <h2 className="mb-6 text-sm font-semibold uppercase text-white">Resources</h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                 <li className="mb-4">
                                     <a href="#" className="hover:underline">Resource 1</a>

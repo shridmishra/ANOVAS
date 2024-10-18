@@ -6,7 +6,7 @@ import { TextGenerateEffect } from "./ui/text-generate-effect";
 
 export function Testimonial() {
   return (
-    <div className="h-full rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden p-6 ">
+    <div className="h-full rounded-md flex flex-col antialiased bg-gradient-to-r from-gray-900 via-black to-gray-900 dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden p-6 ">
       {/* Section title */}
       <div className="text-left mb-12">
         <h1 className="text-black dark:text-white font-sora font-bold text-4xl">

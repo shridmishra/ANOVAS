@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@splinetool/react-spline": "^4.0.0",
     "@tabler/icons-react": "^3.19.0",
     "aceternity-ui": "^0.2.2",
     "class-variance-authority": "^0.7.0",

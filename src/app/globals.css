@@ -119,3 +119,7 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+body {
+  background: linear-gradient(to right, #111827, #000000, #111827); /* Equivalent to from-gray-900 via-black to-gray-900 */
+}

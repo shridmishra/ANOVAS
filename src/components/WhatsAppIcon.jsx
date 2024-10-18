@@ -19,7 +19,7 @@ export const WhatsAppStickyIcon = () => {
       >
         <FaWhatsapp className="h-10 w-10 lg:ml-2 rounded-full" />
         {!isMobile && ( 
-          <span className=" m-2 p-1 text-lg font-semibold">Chat on WhatsApp</span>
+          <div className=" m-2 p-1 text-lg font-semibold">Chat on WhatsApp</div>
         )}
       </a>
     </div>

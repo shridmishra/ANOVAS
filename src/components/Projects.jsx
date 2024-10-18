@@ -8,7 +8,7 @@ export const Projects = () =>{
 
   const title = "Our Projects" 
   return (
-    (<div className="w-full h-full py-20 bg-black z-50">
+    (<div className="w-full h-full py-20  z-50">
        {/* Section title */}
        <div className="text-center">
         <h1 className="text-black dark:text-white font-sora font-bold text-4xl">
