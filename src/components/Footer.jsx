@@ -4,8 +4,18 @@ import React from "react"
 
 export const Footer = () => {
     return (
-        <footer className="bg-gradient-to-r from-gray-900 via-black to-gray-900 font-sora">
-            <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <footer className="relative bg-gradient-to-r from-gray-900 via-black to-gray-900 font-sora overflow-hidden">
+            {/* Glowing effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 opacity-30 blur-md" />
+
+            {/* Cool SVG Background */}
+            <div className="absolute inset-0 z-0 opacity-20">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-full">
+                    <path fill="#6a0dad" fillOpacity="0.5" d="M0,224L48,192C96,160,192,96,288,112C384,128,480,224,576,245.3C672,267,768,213,864,176C960,139,1056,117,1152,117.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+
+            <div className="relative z-10 mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
                         <a href="#" className="flex items-center">
@@ -73,14 +83,15 @@ export const Footer = () => {
                         </a>
                         <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
                             <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
-                                <path fillRule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clipRule="evenodd"/>
+                                <path fillRule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.39.75a4.008 4.008 0 0 0-.553 2.03c0 1.401.735 2.642 1.854 3.371a4.084 4.084 0 0 1-1.856-.511v.05a4.057 4.057 0 0 0 3.282 3.974 4.122 4.122 0 0 1-1.084.137 4.121 4.121 0 0 1-.771-.068A4.098 4.098 0 0 0 6.52 13.17a8.237 8.237 0 0 1-5.09 1.742A8.75 8.75 0 0 1 0 14.866 11.59 11.59 0 0 0 6.29 16.9c7.548 0 11.676-6.137 11.676-11.457 0-.174-.004-.346-.012-.515A8.315 8.315 0 0 0 20 1.892Z" clipRule="evenodd"/>
                             </svg>
                             <span className="sr-only">Twitter page</span>
                         </a>
-                        {/* Add more social media links as needed */}
                     </div>
                 </div>
             </div>
         </footer>
     )
 }
+
+export default Footer;

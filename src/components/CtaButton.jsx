@@ -5,7 +5,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 export const CtaButton = () => {
   return (
-    <div className="flex justify-center lg:justify-start">
+    <div className="flex justify-center lg:justify-start font-sora">
       <div className="relative inline-block group">
         <button className="relative flex items-center justify-start p-4 rounded-full bg-white text-black hover:text-white hover:bg-gradient-to-r from-indigo-600 to-purple-500">
           {/* Circle with icon */}

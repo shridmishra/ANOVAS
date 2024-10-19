@@ -11,15 +11,15 @@ import { ServicesLoop } from "@/components/ServiceLoop";
 import Navbar from "@/components/NavBar";
 import Hero from "@/components/Hero";
 import { SkeletonLoader } from "@/components/Skeleton"; // Import the Skeleton Loader
-
+import Stats from "@/components/Stats";
+import ConnectCard from "@/components/ConnectCard";
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time (you can adjust or remove this timeout based on your actual data fetch)
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); // 3 seconds delay
+    }, 5000); 
 
     return () => clearTimeout(timer);
   }, []);
@@ -33,9 +33,10 @@ export default function Home() {
       <Navbar />
       <Hero />
       <ServicesLoop />
+      <Stats/>
       <Projects />
       <Testimonial />
-      <ContactForm />
+      <ConnectCard />
       <Footer />
       <WhatsAppStickyIcon />
     </div>

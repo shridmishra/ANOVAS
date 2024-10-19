@@ -14,15 +14,11 @@ export const WhatsAppStickyIcon = () => {
         href="https://wa.me/your-phone-number" 
         target="_blank"
         rel="noopener noreferrer"
-        className={`flex items-center shadow-lg text-white hover:bg-green-600 transition-transform duration-300 ease-in-out hover:scale-105 ${
-          isMobile ? 'bg-green-500 rounded-full' : 'bg-green-500 lg:rounded-lg'
-        }`}
+        className={`flex items-center shadow-lg text-white hover:bg-green-600 transition-transform duration-300 ease-in-out bg-green-500 rounded-lg ${isMobile ? 'text-sm' : 'text-lg'}`}
         style={{ fontFamily: 'Sora, sans-serif' }} 
       >
-        <FaWhatsapp className={`h-10 w-10 ${isMobile ? 'p-1 rounded-full' : 'lg:ml-2 rounded-lg'}`} />
-        {!isMobile && ( 
-          <div className="m-2 p-1 text-lg font-semibold">Chat on WhatsApp</div>
-        )}
+        <FaWhatsapp className={`h-${isMobile ? '8' : '10'} w-${isMobile ? '8' : '10'} ml-2`} />
+        <div className={`m-2 p-1 font-semibold ${isMobile ? 'text-base' : 'text-lg'}`}>Chat on WhatsApp</div>
       </a>
     </div>
   );

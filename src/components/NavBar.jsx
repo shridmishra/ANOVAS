@@ -16,7 +16,7 @@ const Navbar = () => {
   const toggleBlog = () => setIsBlogOpen(prev => !prev);
 
   return (
-    <div className="menu-wrap font-sora mt-10 relative border-2 border-dashed border-gray-500 rounded-full mx-4 sm:mx-10 lg:mx-24 z-50">
+    <div className="menu-wrap font-sora mt-10 relative border-gray-500 rounded-full mx-4 sm:mx-10 lg:mx-24 z-50">
       <div className='p-3'> 
         <nav className="menu-nav flex justify-between items-center bg-[#1C1832] text-white rounded-full shadow-lg px-4 md:px-8 py-3">
           <div className="logo flex items-center space-x-3"> 
@@ -37,20 +37,16 @@ const Navbar = () => {
                 </Link>
                 {isPagesOpen && (
                   <ul className="submenu absolute top-full left-0 w-56 bg-gray-800 text-white py-3 rounded-md">
-                    
-                  
-  <li><Link href="/ui-ux-design" className="block p-2 hover:bg-gray-600 rounded">UI/UX Design</Link></li>
-  <li><Link href="/app-development" className="block p-2 hover:bg-gray-600 rounded">App Development</Link></li>
-  <li><Link href="/web-development" className="block p-2 hover:bg-gray-600 rounded">Web Development</Link></li>
-  <li><Link href="/devops-solutions" className="block p-2 hover:bg-gray-600 rounded">DevOps Solutions</Link></li>
-  <li><Link href="/mobile-app-development" className="block p-2 hover:bg-gray-600 rounded">Mobile App Development</Link></li>
-  <li><Link href="/cloud-services" className="block p-2 hover:bg-gray-600 rounded">Cloud Services</Link></li>
-  <li><Link href="/web-app-creation" className="block p-2 hover:bg-gray-600 rounded">Web App Creation</Link></li>
-  <li><Link href="/ui-ux-profiles" className="block p-2 hover:bg-gray-600 rounded">UI/UX Profiles</Link></li>
-  <li><Link href="/login-register" className="block p-2 hover:bg-gray-600 rounded">Login &amp; Register</Link></li>
-</ul>
-
-                  
+                    <li><Link href="/ui-ux-design" className="block p-2 hover:bg-gray-600 rounded">UI/UX Design</Link></li>
+                    <li><Link href="/app-development" className="block p-2 hover:bg-gray-600 rounded">App Development</Link></li>
+                    <li><Link href="/web-development" className="block p-2 hover:bg-gray-600 rounded">Web Development</Link></li>
+                    <li><Link href="/devops-solutions" className="block p-2 hover:bg-gray-600 rounded">DevOps Solutions</Link></li>
+                    <li><Link href="/mobile-app-development" className="block p-2 hover:bg-gray-600 rounded">Mobile App Development</Link></li>
+                    <li><Link href="/cloud-services" className="block p-2 hover:bg-gray-600 rounded">Cloud Services</Link></li>
+                    <li><Link href="/web-app-creation" className="block p-2 hover:bg-gray-600 rounded">Web App Creation</Link></li>
+                    <li><Link href="/ui-ux-profiles" className="block p-2 hover:bg-gray-600 rounded">UI/UX Profiles</Link></li>
+                    <li><Link href="/login-register" className="block p-2 hover:bg-gray-600 rounded">Login &amp; Register</Link></li>
+                  </ul>
                 )}
               </li>
               <li className="relative group hover:text-[#e039fd] mr-10">
@@ -78,7 +74,7 @@ const Navbar = () => {
       </div>
 
       {isMenuOpen && (
-        <div className={`mobile-menu bg-gray-800 text-white p-4 rounded-lg mt-2 shadow-lg md:hidden fixed top-0 right-0 h-full w-64 transition-transform duration-300 ${isMenuOpen ? "transform translate-x-0" : "transform translate-x-full"}`}>
+        <div className={`mobile-menu bg-gray-800 text-white p-4 rounded-lg mt-2 shadow-lg md:hidden fixed top-0 right-0 h-full w-64 transition-transform duration-300 ease-in-out transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
           <button className="absolute top-4 right-4" onClick={toggleMenu}>
             <FaTimes className="text-white" size={24} />
           </button>
@@ -102,7 +98,6 @@ const Navbar = () => {
                 <li><Link href="/author-profile" className="block p-2 hover:bg-gray-600 rounded">Author Web Profile</Link></li>
                 <li><Link href="/login-register" className="block p-2 hover:bg-gray-600 rounded">Login &amp; Register</Link></li>
               </ul>
-              
               )}
             </li>
             <li className="relative group">

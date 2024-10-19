@@ -30,7 +30,7 @@ const Hero = () => {
         <div className="text-center md:text-left md:w-1/2 text-white lg:ml-52 z-10">
         
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-snug max-w-xl capitalize text-gray-100 mb-6">
-            Boost your start to the next level
+            Boost your startUp to the next level
           </h1>
           <p className="text-base md:text-lg lg:text-xl mb-8 max-w-md text-gray-300 leading-relaxed">
   We build websites and apps to bring your vision to life and help your business grow.

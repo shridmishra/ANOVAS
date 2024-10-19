@@ -17,14 +17,19 @@ export const ServicesLoop = () => {
   const title = "Why Choose Us?";
 
   return (
-    <div className="overflow-hidden py-8 bg-gradient-to-r from-gray-900 via-black to-gray-900">
-      <div className="text-center mb-14">
+    <div className="relative overflow-hidden py-8 bg-gradient-to-r from-gray-900 via-black to-gray-900">
+      {/* Left Blur Effect */}
+      <div className="absolute inset-y-0 left-0 w-1/2 backdrop-blur-lg pointer-events-none" />
+      {/* Right Blur Effect */}
+      <div className="absolute inset-y-0 right-0 w-1/2 backdrop-blur-lg pointer-events-none" />
+      
+      <div className="text-center mb-14 relative z-10">
         <h1 className="text-white font-sora font-bold ">
           <TextGenerateEffect words={title} />
         </h1>
       </div>
 
-      <div className="flex items-center justify-center space-x-6 animate-marquee text-center">
+      <div className="flex items-center justify-center space-x-6 animate-marquee text-center relative z-10">
         {reasons.map((reason, index) => (
           <div
             key={index}

@@ -123,3 +123,67 @@
 body {
   background: linear-gradient(to right, #111827, #000000, #111827); /* Equivalent to from-gray-900 via-black to-gray-900 */
 }
+
+.glow-text {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .glow-text {
+    font-size: 3rem; /* Adjust as needed for smaller screens */
+  }
+}
+@keyframes glow {
+  0% {
+      opacity: 0.3;
+      transform: scale(1);
+  }
+  50% {
+      opacity: 0.6;
+      transform: scale(1.05);
+  }
+  100% {
+      opacity: 0.3;
+      transform: scale(1);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.floating-sphere {
+  position: absolute;
+  animation: float 4s ease-in-out infinite;
+}
+
+.floating-sphere:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-duration: 6s;
+}
+
+.floating-sphere:nth-child(2) {
+  top: 50%;
+  right: 20%;
+  animation-duration: 4s;
+}
+
+.floating-sphere:nth-child(3) {
+  bottom: 10%;
+  left: 40%;
+  animation-duration: 5s;
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
