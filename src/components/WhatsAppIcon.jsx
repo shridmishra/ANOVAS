@@ -18,7 +18,7 @@ export const WhatsAppStickyIcon = () => {
         style={{ fontFamily: 'Sora, sans-serif' }} 
       >
         <FaWhatsapp className={`h-${isMobile ? '8' : '10'} w-${isMobile ? '8' : '10'} ml-2`} />
-        <div className={`m-2 p-1 font-semibold ${isMobile ? 'text-base' : 'text-lg'}`}>Chat on WhatsApp</div>
+        <div className={`m-2 p-1 font-semibold ${isMobile ? 'text-xs' : 'text-lg'}`}>Chat on WhatsApp</div>
       </a>
     </div>
   );

@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaSearch, FaBars, FaTimes } from 'react-icons/fa'; 
-import { CtaButton } from './CtaButton';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,7 +17,7 @@ const Navbar = () => {
   return (
     <div className="menu-wrap font-sora mt-10 relative border-gray-500 rounded-full mx-4 sm:mx-10 lg:mx-24 z-50">
       <div className='p-3'> 
-        <nav className="menu-nav flex justify-between items-center bg-[#1C1832] text-white rounded-full shadow-lg px-4 md:px-8 py-3">
+        <nav className="menu-nav flex justify-between items-center bg-[#1C1832] text-white rounded-full shadow-lg px-4 md:px-8 py-4">
           <div className="logo flex items-center space-x-3"> 
             <Link href="/" passHref>
               <Image src="/logo.png" alt="Logo" width={40} height={40} />
@@ -63,9 +62,7 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="header-action hidden md:block ml-6">
-            <CtaButton />
-          </div>
+         
 
           <button className="md:hidden p-2 ml-auto" onClick={toggleMenu}>
             {isMenuOpen ? <FaTimes className="text-white" /> : <FaBars className="text-white" />}
@@ -111,11 +108,7 @@ const Navbar = () => {
                 </ul>
               )}
             </li>
-            <li className="header-btn">
-              <CtaButton className="">
-                
-              </CtaButton>
-            </li>
+           
           </ul>
         </div>
       )}
